@@ -1,0 +1,50 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    background-color: #fdfdfd;
+}
+
+.head_text {
+    color: white;
+}
+
+
+/* .card {
+    box-shadow: 0 16px 48px #E3E7EB;
+    padding-block: 10px;
+} */
+
+.card-title {
+    color: #1A1A1A;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Raleway";
+}
+
+.card-content {
+    color: #1A1A1A;
+    font-size: 19px;
+    font-family: "Source Sans Pro";
+}
+
+.card-date {
+    color: #A3A2A2;
+    font-size: 15px;
+    font-family: "Source Sans Pro";
+}
+
+.card-category {
+    color: #1A1A1A;
+    font-size: 15px;
+    font-family: "Source Sans Pro";
+}
+
+.read-more {
+    color: #0283DE;
+    font-size: 19px;
+    font-family: "Source Sans Pro";
+}
+
+.description {
+    padding-right: 20px;
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/post.js' %}"></script>
+{% endblock %}
+{% block content %}
+
+
+
+<div class="search-bar form-group " align="center">
+    <div class="row">
+    <div class="col-2"></div>
+    <div class="col-5">
+        <div class="row">
+            <div class="col">
+            <label for="fname">Search blog post</label>
+            </div>
+            <div class="col-8">
+            <input type="text" class="form-control" id="search-post">
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <select id="category" class="form-control">
+            <option value="">All</option>
+        {% for category in categories  %}
+            <option value="{{ category.id }}">{{ category.title }}</option>
+        {% endfor %}
+        </select><br><br>
+    </div>
+    </div>
+    <div class="col-2"></div>    
+</div>
+
+<div id="post-list-container">
+    <div id="post-container">
+        <!-- Blog Entries Column -->
+        {% for post in post_list %}
+        <div class="post-item card mb-4" style="width: 45em;margin:0 auto;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-5 mt-1 image">
+                        <img src="{{post.image.url}}" alt="{{post.title}}" title="{{psot.title}}" width="245">
+                    </div>
+                    <div class="col-6 description">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <div class="row pl-3">
+                            <p class="card-date">{{ post.created_at}}</p><p class="card-category"> | {{ post.category}}</p>
+                        </div>
+                        <p class="card-content">{{post.content|truncatewords:20 }}<a href="{% url 'post_detail' post.slug  %}" class="read-more">Read More</a></p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination button -->
+    {% if page_obj.has_next %}
+    <div class="inbox-button-load text-center mt-3">
+        <a href="#" class="btn btn-sm" id="btn-load" data-next-page="{{ page_obj.next_page_number }}">load more</a>
+    </div>
+    {% endif %}
+    <!-- end Pagination button -->
+</div>
+{%endblock%}

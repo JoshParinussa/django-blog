@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <img src="{{post.image.url}}" alt="{{post.title}}" title="{{psot.title}}" width="245">
+        <div class="row pl-3 pt-3">
+            <p class="card-date">{{ post.created_at}}</p><p class="card-category"> | {{ post.category}}</p>
+        </div>
+        <p class="card-text ">{{ object.content | safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

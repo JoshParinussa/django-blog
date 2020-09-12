@@ -1,0 +1,12 @@
+.DS_Store
+.vscode
+.venv
+.pyc
+*.ipynb*
+*.sqlite3
+*.db
+*.pid
+__pycache__
+/venv/
+/media/
+tmp/
